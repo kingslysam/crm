@@ -15,7 +15,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
 
   if (location === "/") {
     return (
-      <body className={cn("dash-tail-app ", inter.className)}>
+      <body className={cn("simplify-crm-app ", inter.className)}>
         <ThemeProvider
           attribute="class"
           enableSystem={false}
@@ -33,7 +33,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   }
   return (
     <body
-      className={cn("dash-tail-app ", inter.className, "theme-" + theme)}
+      className={cn("simplify-crm-app ", inter.className, "theme-" + theme)}
       style={{
         "--radius": `${radius}rem`,
       } as React.CSSProperties

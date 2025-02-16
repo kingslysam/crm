@@ -1,4 +1,3 @@
-import { getDictionary } from "@/app/dictionaries";
 import ProjectPageView from "./page-view";
 
 interface DashboardProps {
@@ -8,8 +7,7 @@ interface DashboardProps {
 }
 
 const ProjectPage = async ({ params: { lang } }: DashboardProps) => {
-  const trans = await getDictionary(lang);
-  return <ProjectPageView trans={trans} />;
+  return <ProjectPageView />;
 };
 
 export default ProjectPage;

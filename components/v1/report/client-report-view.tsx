@@ -157,16 +157,16 @@ const ClientReportView = () => {
                                         {zone}
                                     </td>
                                     <td className="px-2 py-4 text-sm font-medium text-center whitespace-nowrap">
-                                        {leadAnalytics.data[zone].totalLeadsInPeriod.toLocaleString()}
+                                        {/* {leadAnalytics.data[zone].totalLeadsInPeriod.toLocaleString()} */}
                                     </td>
                                     <td className="px-2 py-4 text-sm text-center whitespace-nowrap">
-                                        {leadAnalytics.data[zone].totalLeadsInProcess.toLocaleString()}
+                                        {/* {leadAnalytics.data[zone].totalLeadsInProcess.toLocaleString()} */}
                                     </td>
                                     <td className="px-1 py-4 text-sm text-center whitespace-nowrap">
-                                        {leadAnalytics.data[zone].totalOnBoardedLeadsInPeriod.toLocaleString()}
+                                        {/* {leadAnalytics.data[zone].totalOnBoardedLeadsInPeriod.toLocaleString()} */}
                                     </td>
                                     <td className="px-1 py-4 text-sm text-center whitespace-nowrap">
-                                        {leadAnalytics.data[zone].onBoardedLeadsFromOutsidePeriod.toLocaleString()}
+                                        {/* {leadAnalytics.data[zone].onBoardedLeadsFromOutsidePeriod.toLocaleString()} */}
                                     </td>
                                     <td className="px-1 py-4 text-sm text-center whitespace-nowrap">
                                         -

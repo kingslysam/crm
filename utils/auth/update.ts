@@ -1,8 +1,8 @@
-import { ProfileInterface } from "@/components/dashboard/profile/UpdateProfileModal";
+// import { ProfileInterface } from "@/components/dashboard/profile/UpdateProfileModal";
 import { supabase } from "../supabase";
 import { setCookie } from "cookies-next";
 
-export async function updateUser(data: ProfileInterface) {
+export async function updateUser(data: any) {
   const { data: User, error: ProfileError } = await supabase.auth.updateUser({
     data: {
       first_name: data.first_name,

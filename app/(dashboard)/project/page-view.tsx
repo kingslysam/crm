@@ -13,7 +13,7 @@ import RecentActivity from "./components/recent-activity";
 import TopContributer from "./components/top-contributer";
 import ActiveTask from "./components/active-task";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import DatePickerWithRange from "@/components/date-picker-with-range";
+import DatePickerWithRange, { DateRange } from "@/components/date-picker-with-range";
 import {
   Select,
   SelectContent,
@@ -22,19 +22,21 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Icon } from "@iconify/react";
-interface ProjectPageViewProps {
-  trans: {
-    [key: string]: string;
-  };
-}
-const ProjectPageView = ({ trans }: ProjectPageViewProps) => {
+import { useState } from "react";
+
+const ProjectPageView = () => {
+      const [dateRange, setDateRange] = useState<DateRange>({
+          from: new Date(),
+          to: new Date()
+      });
   return (
     <div className="space-y-6">
       <div className="flex items-center flex-wrap justify-between gap-4">
         <div className="text-2xl font-medium text-default-800">
           Project Dashboard
         </div>
-        <DatePickerWithRange />
+        <DatePickerWithRange selected={dateRange}
+          onSelect={setDateRange} />
       </div>
 
       <div className="grid grid-cols-12 gap-6">
