@@ -10,7 +10,7 @@ import TopTen from "./components/top-ten";
 import TopPage from "./components/top-page";
 import DatePickerWithRange, { DateRange } from "@/components/date-picker-with-range";
 import { useEffect, useState } from "react";
-import { format, startOfDay, endOfDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, startOfQuarter, endOfQuarter } from 'date-fns';
+import { format, startOfDay, endOfDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, startOfQuarter, endOfQuarter, subDays } from 'date-fns';
 import { LeadAnalyticsPayload, LeadAnalyticsResponse } from "@/types/lead";
 import { getLeadAnalyticsWithStartAndEndDate } from "@/utils/queries/lead/getQueries";
 import { Loader2 } from "lucide-react";
@@ -19,7 +19,7 @@ import LeadStatsTable from "./components/leads-stats-table";
 
 const DashboardPageView = () => {
   const [dateRange, setDateRange] = useState<DateRange>({
-    from: new Date(),
+    from: startOfDay(subDays(new Date(), 30)),
     to: new Date()
   });
   const [leadAnalytics, setLeadAnalytics] = useState<LeadAnalyticsResponse | null>(null);

@@ -21,6 +21,7 @@ import twitter from "@/public/images/auth/twitter.png";
 import GithubIcon from "@/public/images/auth/github.png";
 import { SiteLogo } from "@/components/svg";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import SimplifyLogo from "@/public/images/logo/logo.png";
 
 const schema = z.object({
   email: z.string().email({ message: "Your email is invalid." }),
@@ -63,18 +64,18 @@ const LogInForm = () => {
       //   redirect: false,
       // });
       // if (response?.ok) {
-        toast.success("Login Successful");
-        window.location.assign("/dashboard");
-        reset();
+      toast.success("Login Successful");
+      window.location.assign("/dashboard");
+      reset();
       // } else if (response?.error) {
-        // toast.error(response?.error);
+      // toast.error(response?.error);
       // }
     });
   };
   return (
     <div className="w-full py-5 lg:py-10">
       <Link href="/dashboard" className="inline-block">
-        <SiteLogo className="h-10 w-10 2xl:w-14 2xl:h-14 text-primary" />
+        <Image src={SimplifyLogo} alt="logo" className="h-10 w-10 2xl:w-14 2xl:h-14 text-primary" priority={true} />
       </Link>
       <div className="2xl:mt-8 mt-6 2xl:text-3xl text-2xl font-bold text-default-900">
         Hey, Hello 👋
@@ -160,12 +161,12 @@ const LogInForm = () => {
               Remember me
             </Label>
           </div>
-          <Link href="/auth/forgot" className="flex-none text-sm text-primary">
+          <Link href="/auth/forgot" className="flex-none text-sm text-[#3e84e0]">
             Forget Password?
           </Link>
         </div>
         <Button
-          className="w-full"
+          className="w-full bg-[#3e84e0]"
           disabled={isPending}
           size={!isDesktop2xl ? "lg" : "md"}
         >
@@ -173,56 +174,9 @@ const LogInForm = () => {
           {isPending ? "Loading..." : "Sign In"}
         </Button>
       </form>
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-          disabled={isPending}
-          onClick={() =>
-            signIn("google", {
-              callbackUrl: "/dashboard",
-            })
-          }
-        >
-          <Image src={googleIcon} alt="google" className="w-5 h-5" priority={true} />
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-          disabled={isPending}
-          onClick={() =>
-            signIn("github", {
-              callbackUrl: "/dashboard",
-              redirect: false,
-            })
-          }
-        >
-          <Image src={GithubIcon} alt="google" className="w-5 h-5" priority={true} />
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-        >
-          <Image src={facebook} alt="google" className="w-5 h-5" priority={true} />
-        </Button>
-        <Button
-          type="button"
-          size="icon"
-          variant="outline"
-          className="rounded-full  border-default-300 hover:bg-transparent"
-        >
-          <Image src={twitter} alt="google" className="w-5 h-5" priority={true} />
-        </Button>
-      </div>
       <div className="mt-5 lg:mt-8 text-center text-base text-default-600">
         Don't have an account?{" "}
-        <Link href="/auth/register5" className="text-primary">
+        <Link href="/auth/register5" className="text-[#3e84e0]">
           {" "}
           Sign Up{" "}
         </Link>
