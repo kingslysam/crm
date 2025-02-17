@@ -1,5 +1,6 @@
-import { SiteLogo } from "@/components/svg";
+import SimplifyLogo from "@/public/images/logo/logo.png"
 import { useSidebar } from "@/store";
+import Image from "next/image";
 import React from "react";
 
 const SidebarLogo = ({ hovered }: { hovered?: boolean }) => {
@@ -8,9 +9,9 @@ const SidebarLogo = ({ hovered }: { hovered?: boolean }) => {
     <div className="px-4 py-4 ">
       <div className=" flex items-center">
         <div className="flex flex-1 items-center gap-x-3  ">
-          <SiteLogo className="text-primary h-8 w-8" />
+          <Image alt="Simplify Logo" src={SimplifyLogo} width={30} height={30}/>
           {(!collapsed || hovered) && (
-            <div className="flex-1  text-xl text-primary  font-semibold">
+            <div className="flex-1  text-xl text-blue-500  font-semibold">
               Simplify
             </div>
           )}

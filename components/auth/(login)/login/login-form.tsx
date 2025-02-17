@@ -14,12 +14,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { Checkbox } from "@/components/ui/checkbox";
-
-import googleIcon from "@/public/images/auth/google.png";
-import facebook from "@/public/images/auth/facebook.png";
-import twitter from "@/public/images/auth/twitter.png";
-import GithubIcon from "@/public/images/auth/github.png";
-import { SiteLogo } from "@/components/svg";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import SimplifyLogo from "@/public/images/logo/logo.png";
 
@@ -166,7 +160,7 @@ const LogInForm = () => {
           </Link>
         </div>
         <Button
-          className="w-full bg-[#3e84e0]"
+          className="w-full bg-[#3e84e0] hover:bg-[#3e84e0]/90 text-white"
           disabled={isPending}
           size={!isDesktop2xl ? "lg" : "md"}
         >

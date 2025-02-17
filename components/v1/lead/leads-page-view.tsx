@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Icon } from '@iconify/react';
 import LeadsTable from './LeadsTable';
 import { ClientResponseInterface } from '@/types/client';
+import LeadBreadCurb from './LeadBreadCurb';
 
 interface LeadsPageProps {
     leads: LeadResponseType[];
@@ -54,7 +55,7 @@ const LeadsViewPage = ({ leads = [], clients = [], isLoading = false }: LeadsPag
 
     return (
         <>
-            {/* <LeadBreadCurb title="Lead" client={clients} /> */}
+            <LeadBreadCurb title="Lead" client={clients} />
             <Tabs defaultValue="on-boarded" className="inline-block w-[95vw]">
                 <TabsList className="border bg-background">
                     <TabsTrigger

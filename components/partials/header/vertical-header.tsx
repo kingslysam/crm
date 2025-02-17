@@ -1,11 +1,11 @@
 import React from "react";
 import { useSidebar, useThemeStore } from "@/store";
 import { cn } from "@/lib/utils";
-import { Icon } from "@iconify/react";
 import { Search } from "lucide-react";
-import { SiteLogo } from "@/components/svg";
+import SimplifyLogo from "@/public/images/logo/logo.png"
 import Link from "next/link";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import Image from "next/image";
 
 const MenuBar = ({ collapsed, setCollapsed }: { collapsed: boolean, setCollapsed: (value: boolean) => void; }) => {
   return (
@@ -68,7 +68,7 @@ const VerticalHeader: React.FC<VerticalHeaderProps> = ({ handleOpenSearch }) => 
 
   const MainLogo = (
     <Link href="/dashboard" className=" text-primary ">
-      <SiteLogo className="h-7 w-7" />
+      <Image alt="Simplify Logo" src={SimplifyLogo} width={30} height={30}/>
     </Link>
   );
   const SearchButton = (

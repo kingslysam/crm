@@ -19,7 +19,7 @@ import googleIcon from "@/public/images/auth/google.png";
 import facebook from "@/public/images/auth/facebook.png";
 import apple from "@/public/images/auth/apple.png";
 import twitter from "@/public/images/auth/twitter.png";
-import { SiteLogo } from "@/components/svg";
+import SimplifyLogo from "@/public/images/logo/logo.png";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 const schema = z.object({
@@ -67,7 +67,7 @@ const RegForm = () => {
   return (
     <div className="w-full">
       <Link href="/dashboard" className="inline-block">
-        <SiteLogo className="h-10 w-10 2xl:w-14 2xl:h-14 text-primary" />
+        <Image src={SimplifyLogo} alt="logo" className="h-10 w-10 2xl:w-14 2xl:h-14 text-primary" priority={true} />
       </Link>
       <div className="2xl:mt-8 mt-6 2xl:text-3xl text-2xl font-bold text-default-900">
         Hey, Hello 👋

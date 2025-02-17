@@ -1,7 +1,8 @@
 import React from "react";
 import { Search } from "lucide-react";
-import { SiteLogo } from "@/components/svg";
+import SimplifyLogo from "@/public/images/logo/logo.png"
 import Link from "next/link";
+import Image from "next/image";
 const horizontalHeader = ({ handleOpenSearch }: { handleOpenSearch: () => void; }) => {
   return (
     <div className="flex items-center lg:gap-12 gap-3 ">
@@ -10,7 +11,7 @@ const horizontalHeader = ({ handleOpenSearch }: { handleOpenSearch: () => void; 
           href="/dashboard"
           className=" text-primary flex items-center gap-2"
         >
-          <SiteLogo className="h-7 w-7" />
+          <Image alt="simplify logo" src={SimplifyLogo} width={30} height={30} />
           <span className=" text-xl font-semibold lg:inline-block hidden">
             {" "}
             Simplify

@@ -20,11 +20,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-
-
 import Link from "next/link";
-import { SiteLogo } from "@/components/svg";
+import SimplifyLogo from "@/public/images/logo/logo.png"
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 export default function SubmitFormInDrawer() {
   return (
     <Sheet>
@@ -46,7 +45,7 @@ export default function SubmitFormInDrawer() {
             <div className=" text-center py-2">
               <div className="flex justify-center">
                 <Link href="#">
-                  <SiteLogo className="w-12 h-12 mb-2 text-primary" />
+                  <Image alt="Simplify logo" src={SimplifyLogo} width={30} height={30} />
                 </Link>
               </div>
               <h3 className="text-2xl font-bold text-default-700 ">

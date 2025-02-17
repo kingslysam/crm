@@ -1,5 +1,4 @@
 import DashBoardLayoutProvider from "@/provider/dashboard.layout.provider";
-import { LocalizationProvider } from "@mui/x-date-pickers";
 
 
 const layout = async ({ children }: { children: React.ReactNode }) => {
