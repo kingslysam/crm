@@ -42,17 +42,16 @@ const columns: ColumnDef<DataType>[] = [
 
   {
     accessorKey: "page",
-    header: "Page",
+    header: "Name",
     cell: ({ row }) => (
       <div className="flex gap-4">
-        <span className="text-default-600">{row.getValue("id")}</span>
         <span>{row.getValue("page")}</span>
       </div>
     ),
   },
   {
     accessorKey: "post",
-    header: "Post",
+    header: "Zone",
     cell: ({ row }) => (
       <div className="truncate max-w-[200px]">
         {row.getValue("post")}
@@ -61,20 +60,13 @@ const columns: ColumnDef<DataType>[] = [
   },
   {
     accessorKey: "count",
-    header: "Count",
+    header: "Sales",
     cell: ({ row }) => (
       <div className="flex items-center gap-1">
         <span> {row.getValue("count")}</span>
       </div>
     ),
   },
-  {
-    accessorKey: "id",
-    header: "Action",
-    cell: ({ row }) => (
-      <Link href="#" className="text-primary hover:underline">Details</Link>
-    )
-  }
 ];
 
 const TopPage = () => {

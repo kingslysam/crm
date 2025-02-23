@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { TimeSeries } from '../../../../../types/lead';
 
 const ReportsSnapshot = ({ timeSeries }: { timeSeries: TimeSeries }) => {
+  console.log(timeSeries);
   const { theme: config } = useThemeStore();
   const { theme: mode } = useTheme();
   const theme = themes.find((theme) => theme.name === config);
@@ -48,22 +49,46 @@ const ReportsSnapshot = ({ timeSeries }: { timeSeries: TimeSeries }) => {
   const tabsContentData = [
     {
       value: "on boarded",
-      series: [{ data: timeSeries.data["On Boarded"] }],
+      series: [{
+        name: "On Boarded",
+        data: timeSeries.data["On Boarded"].map((value, index) => ({
+          x: timeSeries.labels[index],
+          y: value
+        }))
+      }],
       color: primary,
     },
     {
       value: "on process",
-      series: [{ data: timeSeries.data["On Process"] }],
+      series: [{
+        name: "On Process",
+        data: timeSeries.data["On Process"].map((value, index) => ({
+          x: timeSeries.labels[index],
+          y: value
+        }))
+      }],
       color: warning,
     },
     {
       value: "hesitant",
-      series: [{ data: timeSeries.data["Hesitant"] }],
+      series: [{
+        name: "Hesitant",
+        data: timeSeries.data["Hesitant"].map((value, index) => ({
+          x: timeSeries.labels[index],
+          y: value
+        }))
+      }],
       color: success,
     },
     {
       value: "future client",
-      series: [{ data: timeSeries.data["Future Client"] }],
+      series: [{
+        name: "Future Client",
+        data: timeSeries.data["Future Client"].map((value, index) => ({
+          x: timeSeries.labels[index],
+          y: value
+        }))
+      }],
       color: info,
     },
   ];

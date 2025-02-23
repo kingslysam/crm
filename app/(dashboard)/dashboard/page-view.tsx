@@ -10,8 +10,8 @@ import TopTen from "./components/top-ten";
 import TopPage from "./components/top-page";
 import DatePickerWithRange, { DateRange } from "@/components/date-picker-with-range";
 import { useEffect, useState } from "react";
-import { format, startOfDay, endOfDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, startOfQuarter, endOfQuarter, subDays } from 'date-fns';
-import { LeadAnalyticsPayload, LeadAnalyticsResponse } from "@/types/lead";
+import { format, differenceInDays, startOfDay, endOfDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, startOfQuarter, endOfQuarter, subDays } from 'date-fns';
+import { LeadAnalyticsResponse } from "@/types/lead";
 import { getLeadAnalyticsWithStartAndEndDate } from "@/utils/queries/lead/getQueries";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,13 @@ const DashboardPageView = () => {
   const [leadAnalytics, setLeadAnalytics] = useState<LeadAnalyticsResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const getDaysDifference = () => {
+    if (dateRange.from && dateRange.to) {
+      return differenceInDays(dateRange.to, dateRange.from);
+    }
+    return 0;
+  };
 
   const fetchData = async (start: Date, end: Date) => {
     try {
@@ -142,7 +149,7 @@ const DashboardPageView = () => {
         <>
           <div className="grid grid-cols-12  gap-6 ">
             <div className="grid col-span-12">
-              <LeadStatsTable leadAnalytics={leadAnalytics.data} />
+              <LeadStatsTable leadAnalytics={leadAnalytics.data} periodTarget={getDaysDifference()} />
             </div>
             <div className="col-span-12 lg:col-span-8">
               <ReportsSnapshot timeSeries={leadAnalytics?.data?.overall.timeSeries} />
@@ -158,7 +165,7 @@ const DashboardPageView = () => {
             <Card>
               <CardHeader className="border-none p-6 pt-5 mb-0">
                 <CardTitle className="text-lg font-semibold text-default-900 p-0">
-                  New vs Returning Visitors
+                  New vs Returning Clients
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -168,7 +175,7 @@ const DashboardPageView = () => {
             <Card>
               <CardHeader className="border-none p-6 pt-5 mb-0">
                 <CardTitle className="text-lg font-semibold text-default-900 p-0">
-                  Device Breakdown
+                  Lead Platforms
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -185,7 +192,7 @@ const DashboardPageView = () => {
             <div className="col-span-12 lg:col-span-8">
               <Card>
                 <CardHeader className="border-none pb-0">
-                  <CardTitle className="pt-2.5">Top Page/Post</CardTitle>
+                  <CardTitle className="pt-2.5">Top Sales Agent</CardTitle>
                 </CardHeader>
                 <CardContent className="px-0">
                   <TopPage />

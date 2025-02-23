@@ -13,27 +13,27 @@ const UsersStat = () => {
   const usersData:Users[] = [
     {
       id: 1,
-      country: "Bangladesh",
+      country: "Lake",
       count: "05",
     },
     {
       id: 2,
-      country: "India",
+      country: "Eastern",
       count: "06",
     },
     {
       id: 3,
-      country: "Pakistan",
+      country: "Central",
       count: "06",
     },
     {
       id: 4,
-      country: "Australia",
+      country: "Southern",
       count: "10",
     },
     {
       id: 5,
-      country: "America",
+      country: "Northern",
       count: "08",
     },
   ];
@@ -42,8 +42,7 @@ const UsersStat = () => {
       <CardHeader className="border-none pb-0 mb-5">
         <div className="flex items-center gap-1">
           <div className="flex-1">
-            <div className="text-xl font-semibold text-default-900"> Users </div>
-            <span className="text-xs text-default-600 ml-1">In Last 30 Minutes</span>
+            <div className="text-xl font-semibold text-default-900">Clients</div>
           </div>
           <div className="flex-none flex items-center gap-1">
             <span className="text-4xl font-semibold text-primary">63</span>
@@ -54,7 +53,6 @@ const UsersStat = () => {
         </div>
       </CardHeader>
       <CardContent className="px-5 pb-0">
-        <p className="text-xs font-medium text-default-800">User Per Minutes</p>
         <UsersDataChart />
         <UsersDataTable
           users={usersData}

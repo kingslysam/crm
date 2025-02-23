@@ -1,7 +1,6 @@
 import { LeadAnalyticsPayload, LeadAnalyticsResponse } from "@/types/lead";
 
-const LeadStatsTable = ({ leadAnalytics }: { leadAnalytics: LeadAnalyticsPayload | null }) => {
-    console.log("Lead Analytics",leadAnalytics);
+const LeadStatsTable = ({ leadAnalytics, periodTarget }: { leadAnalytics: LeadAnalyticsPayload | null, periodTarget: number }) => {
     return (
         <>
             {leadAnalytics !== null && (
@@ -48,7 +47,7 @@ const LeadStatsTable = ({ leadAnalytics }: { leadAnalytics: LeadAnalyticsPayload
                                         {leadAnalytics.byZone[zone].onBoardedLeadsFromOutsidePeriod.toLocaleString()}
                                     </td>
                                     <td className="px-1 py-4 text-sm text-center whitespace-nowrap">
-                                        -
+                                        {periodTarget * 2}
                                     </td>
                                 </tr>
                             ))}

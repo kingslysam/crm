@@ -55,9 +55,19 @@ const ReportsChart = ({ series, chartColor, height = 300 }: ReportsChartProps) =
     yaxis: getYAxisConfig(
       `hsl(${theme?.cssVars[mode === "dark" ? "dark" : "light"].chartLabel})`
     ),
-    xaxis: getXAxisConfig(
-      `hsl(${theme?.cssVars[mode === "dark" ? "dark" : "light"].chartLabel})`
-    ),
+    xaxis: {
+      type: 'datetime',
+      labels: {
+        style: {
+          colors: `hsl(${theme?.cssVars[mode === "dark" ? "dark" : "light"].chartLabel})`,
+        },
+        datetimeFormatter: {
+          year: 'yyyy',
+          month: 'MMM',
+          day: 'dd MMM',
+        }
+      }
+    },
     padding: {
       top: 0,
       right: 0,

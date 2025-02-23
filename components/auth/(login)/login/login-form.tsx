@@ -16,6 +16,7 @@ import { Icon } from "@iconify/react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import SimplifyLogo from "@/public/images/logo/logo.png";
+import { loginUser } from "@/utils/auth/login";
 
 const schema = z.object({
   email: z.string().email({ message: "Your email is invalid." }),
@@ -52,18 +53,16 @@ const LogInForm = () => {
 
   const onSubmit = (data: any) => {
     startTransition(async () => {
-      // let response = await signIn("credentials", {
-      //   email: data.email,
-      //   password: data.password,
-      //   redirect: false,
-      // });
-      // if (response?.ok) {
-      toast.success("Login Successful");
-      window.location.assign("/dashboard");
-      reset();
-      // } else if (response?.error) {
-      // toast.error(response?.error);
-      // }
+      let response = await loginUser(
+        data
+      );
+      if (response?.status === 200) {
+        toast.success("Login Successful");
+        window.location.assign("/dashboard");
+        reset();
+      } else {
+        toast.error(response?.message);
+      }
     });
   };
   return (
@@ -140,27 +139,8 @@ const LogInForm = () => {
             {errors.password.message}
           </div>
         )}
-
-        <div className="mt-5  mb-8 flex flex-wrap gap-2">
-          <div className="flex-1 flex  items-center gap-1.5 ">
-            <Checkbox
-              size="sm"
-              className="border-default-300 mt-[1px]"
-              id="isRemebered"
-            />
-            <Label
-              htmlFor="isRemebered"
-              className="text-sm text-default-600 cursor-pointer whitespace-nowrap"
-            >
-              Remember me
-            </Label>
-          </div>
-          <Link href="/auth/forgot" className="flex-none text-sm text-[#3e84e0]">
-            Forget Password?
-          </Link>
-        </div>
         <Button
-          className="w-full bg-[#3e84e0] hover:bg-[#3e84e0]/90 text-white"
+          className="w-full bg-[#3e84e0] hover:bg-[#3e84e0]/90 text-white mt-5"
           disabled={isPending}
           size={!isDesktop2xl ? "lg" : "md"}
         >
